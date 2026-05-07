@@ -3,112 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>수업 바로가기 웹앱</title>
+    <title>웹앱 바로 가기</title>
     <style>
-        /* 기본 배경 및 폰트 설정 */
-        body { 
-            font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; 
-            padding: 20px; 
-            max-width: 500px; 
-            margin: 0 auto; 
-            background-color: #f4f7f6;
+        /* 기본 스타일 설정 */
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            margin: 0;
+            color: #334e68;
         }
-        h2 {
-            text-align: center;
-            color: #333;
+
+        h1 {
+            color: #102a43;
             margin-bottom: 30px;
+            text-align: center;
+            font-size: 1.5rem;
         }
-        /* 메인 버튼(아코디언) 및 일반 링크 버튼 공통 스타일 */
-        .menu-btn, .link-btn { 
-            background-color: #4b6cb7; 
-            color: white; 
-            padding: 15px 20px; 
-            width: 100%; 
-            border: none; 
-            font-size: 18px; 
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+        }
+
+        /* 큰 카테고리 버튼 스타일 */
+        .category-btn {
+            width: 100%;
+            padding: 20px;
+            background-color: #ffffff;
+            color: #102a43;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
             font-weight: bold;
-            border-radius: 8px; 
-            margin-top: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            box-sizing: border-box;
-            transition: background-color 0.2s;
-        }
-        .menu-btn {
-            text-align: left; 
-            cursor: pointer; 
+            text-align: left;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: background-color 0.3s;
         }
-        .link-btn {
+
+        .category-btn:hover {
+            background-color: #e2e8f0;
+        }
+
+        /* 세부 링크 목록 (기본적으로 숨김) */
+        .link-list {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-left: 10px;
+        }
+
+        /* 세부 링크 버튼 스타일 */
+        .link-item {
             display: block;
-            text-align: center;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
             text-decoration: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            text-align: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        .menu-btn:hover, .link-btn:hover { 
-            background-color: #3a5494; 
+
+        .link-item:active {
+            transform: scale(0.98);
         }
-        
-        /* 하위 링크 컨테이너 (초기에는 숨김) */
-        .dropdown-content { 
-            display: none; 
-            background-color: #ffffff; 
-            border-radius: 8px; 
-            margin-top: 5px; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            overflow: hidden;
+
+        .link-item.sub-link {
+            background-color: #546e7a; /* 색상 차별화 */
         }
-        /* 하위 링크 스타일 */
-        .dropdown-content a { 
-            display: block; 
-            padding: 15px 20px; 
-            text-decoration: none; 
-            color: #4b6cb7; 
-            font-weight: 500;
-            border-bottom: 1px solid #eee; 
+
+        /* 화살표 애니메이션 */
+        .arrow {
+            transition: transform 0.3s;
         }
-        .dropdown-content a:last-child { 
-            border-bottom: none; 
-        }
-        .dropdown-content a:hover { 
-            background-color: #f0f4f8; 
+
+        .active .arrow {
+            transform: rotate(180deg);
         }
     </style>
 </head>
 <body>
 
-    <h2>🔗 수업 바로가기 모음</h2>
+    <h1>🧭 웹앱 바로 가기</h1>
 
-    <!-- 1. 지오지브라 드롭다운 버튼 -->
-    <button class="menu-btn" onclick="toggleMenu('geogebra-menu')">
-        <span>지오지브라</span>
-        <span>▼</span>
-    </button>
-    
-    <!-- 지오지브라 하위 메뉴 -->
-    <div id="geogebra-menu" class="dropdown-content">
-        <a href="https://www.geogebra.org/m/wbza38s2" target="_blank">📐 기하 개념 열기</a>
-        <a href="https://www.notion.so/359306bcfb29804d96c9f26a48233b3b?source=copy_link" target="_blank">📝 지오지브라 활동지</a>
+    <div class="container">
+        
+        <button class="category-btn" onclick="toggleLinks('geogebra', this)">
+            📐 지오지브라 <span class="arrow">▼</span>
+        </button>
+        <div id="geogebra" class="link-list">
+            <a href="https://www.geogebra.org/m/wbza38s2" target="_blank" class="link-item">📖 기하 개념 열기</a>
+            <a href="https://www.notion.so/359306bcfb29804d96c9f26a48233b3b?source=copy_link" target="_blank" class="link-item">📝 지오지브라 활동지</a>
+        </div>
+
+        <button class="category-btn" onclick="toggleLinks('webapp', this)">
+            🌐 웹앱 <span class="arrow">▼</span>
+        </button>
+        <div id="webapp" class="link-list">
+            <a href="https://career-e8vtdjaum4husfbmy4pcj8.streamlit.app/" target="_blank" class="link-item">🔍 진로 탐색기</a>
+            <a href="https://nakji001-netizen.github.io/major-explorer/" target="_blank" class="link-item">🎓 진로 연계 학과 탐색기</a>
+            <a href="https://geometrycareer-iznpecjptdmtlswsb9lhao.streamlit.app/" target="_blank" class="link-item">📐 기하-전공 연결고리 탐색기</a>
+            <a href="https://drive.google.com/drive/folders/1CYlW07Ph86P18FTEuwKECjl55RhRX68B?usp=sharing" target="_blank" class="link-item sub-link">💻 웹앱 코드 (Google Drive)</a>
+        </div>
+
     </div>
 
-    <!-- 2. 추가된 웹앱 바로가기 버튼 -->
-    <a href="https://nakji001-netizen.github.io/webapp/" target="_blank" class="link-btn">
-        🌐 웹앱 접속하기
-    </a>
-
-    <!-- 3. 추가된 웹앱 코드(구글 드라이브) 바로가기 버튼 -->
-    <a href="https://drive.google.com/drive/folders/1CYlW07Ph86P18FTEuwKECjl55RhRX68B?usp=sharing" target="_blank" class="link-btn">
-        📁 웹앱 코드 보기
-    </a>
-
     <script>
-        // 버튼 클릭 시 하위 메뉴를 보이거나 숨기는 자바스크립트 함수
-        function toggleMenu(id) {
-            var menu = document.getElementById(id);
-            if (menu.style.display === "block") {
-                menu.style.display = "none";
+        function toggleLinks(id, btn) {
+            const list = document.getElementById(id);
+            const isVisible = list.style.display === "flex";
+            
+            // 다른 목록을 닫고 싶다면 아래 주석을 해제하세요.
+            // document.querySelectorAll('.link-list').forEach(el => el.style.display = 'none');
+            // document.querySelectorAll('.category-btn').forEach(el => el.classList.remove('active'));
+
+            if (isVisible) {
+                list.style.display = "none";
+                btn.classList.remove("active");
             } else {
-                menu.style.display = "block";
+                list.style.display = "flex";
+                btn.classList.add("active");
             }
         }
     </script>
