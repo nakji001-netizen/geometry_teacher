@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>웹앱 바로 가기</title>
+    <title>기하 학습 자료(교사용)</title>
     <style>
         /* 기본 스타일 설정 */
         body {
@@ -21,7 +21,8 @@
             color: #102a43;
             margin-bottom: 30px;
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
+            font-weight: 800;
         }
 
         .container {
@@ -59,29 +60,50 @@
             flex-direction: column;
             gap: 10px;
             margin-bottom: 20px;
-            padding-left: 10px;
+            padding-left: 5px;
+            padding-right: 5px;
         }
 
-        /* 세부 링크 버튼 스타일 */
+        /* 세부 링크 버튼 공통 스타일 */
         .link-item {
             display: block;
-            padding: 15px;
-            background-color: #007bff;
+            padding: 18px 15px;
             color: white;
             text-decoration: none;
             border-radius: 12px;
-            font-size: 1rem;
+            font-size: 1.15rem; /* 글자 크기 키움 */
+            font-weight: bold;  /* 글자 굵게 처리하여 가시성 확보 */
             text-align: center;
             transition: all 0.2s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 5px rgba(0,0,0,0.15);
         }
 
         .link-item:active {
             transform: scale(0.98);
         }
 
-        .link-item.sub-link {
-            background-color: #546e7a; /* 색상 차별화 */
+        /* 지오지브라 링크 색상 (가시성 높은 청록색) */
+        .geo-link {
+            background-color: #0d9488; 
+        }
+        .geo-link:hover {
+            background-color: #0f766e;
+        }
+
+        /* 웹앱 링크 색상 (가시성 높은 시원한 파란색) */
+        .web-link {
+            background-color: #2563eb; 
+        }
+        .web-link:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* 구글 드라이브 링크 (차분한 슬레이트 그레이) */
+        .drive-link {
+            background-color: #475569; 
+        }
+        .drive-link:hover {
+            background-color: #334155;
         }
 
         /* 화살표 애니메이션 */
@@ -96,7 +118,7 @@
 </head>
 <body>
 
-    <h1>🧭 웹앱 바로 가기</h1>
+    <h1>🧭 기하 학습 자료(교사용)</h1>
 
     <div class="container">
         
@@ -104,18 +126,18 @@
             📐 지오지브라 <span class="arrow">▼</span>
         </button>
         <div id="geogebra" class="link-list">
-            <a href="https://www.geogebra.org/m/wbza38s2" target="_blank" class="link-item">📖 기하 개념 열기</a>
-            <a href="https://www.notion.so/359306bcfb29804d96c9f26a48233b3b?source=copy_link" target="_blank" class="link-item">📝 지오지브라 활동지</a>
+            <a href="https://www.geogebra.org/m/wbza38s2" target="_blank" class="link-item geo-link">📖 기하 개념 열기</a>
+            <a href="https://www.notion.so/359306bcfb29804d96c9f26a48233b3b?source=copy_link" target="_blank" class="link-item geo-link">📝 지오지브라 활동지</a>
         </div>
 
         <button class="category-btn" onclick="toggleLinks('webapp', this)">
             🌐 웹앱 <span class="arrow">▼</span>
         </button>
         <div id="webapp" class="link-list">
-            <a href="https://career-e8vtdjaum4husfbmy4pcj8.streamlit.app/" target="_blank" class="link-item">🔍 진로 탐색기</a>
-            <a href="https://nakji001-netizen.github.io/major-explorer/" target="_blank" class="link-item">🎓 진로 연계 학과 탐색기</a>
-            <a href="https://geometrycareer-iznpecjptdmtlswsb9lhao.streamlit.app/" target="_blank" class="link-item">📐 기하-전공 연결고리 탐색기</a>
-            <a href="https://drive.google.com/drive/folders/1CYlW07Ph86P18FTEuwKECjl55RhRX68B?usp=sharing" target="_blank" class="link-item sub-link">💻 웹앱 코드 (Google Drive)</a>
+            <a href="https://career-e8vtdjaum4husfbmy4pcj8.streamlit.app/" target="_blank" class="link-item web-link">🔍 진로 탐색기</a>
+            <a href="https://nakji001-netizen.github.io/major-explorer/" target="_blank" class="link-item web-link">🎓 진로 연계 학과 탐색기</a>
+            <a href="https://geometrycareer-iznpecjptdmtlswsb9lhao.streamlit.app/" target="_blank" class="link-item web-link">📐 기하-전공 연결고리 탐색기</a>
+            <a href="https://drive.google.com/drive/folders/1CYlW07Ph86P18FTEuwKECjl55RhRX68B?usp=sharing" target="_blank" class="link-item drive-link">💻 웹앱 코드 (Google Drive)</a>
         </div>
 
     </div>
@@ -125,10 +147,6 @@
             const list = document.getElementById(id);
             const isVisible = list.style.display === "flex";
             
-            // 다른 목록을 닫고 싶다면 아래 주석을 해제하세요.
-            // document.querySelectorAll('.link-list').forEach(el => el.style.display = 'none');
-            // document.querySelectorAll('.category-btn').forEach(el => el.classList.remove('active'));
-
             if (isVisible) {
                 list.style.display = "none";
                 btn.classList.remove("active");
