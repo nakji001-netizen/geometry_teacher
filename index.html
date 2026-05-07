@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>기하 학습 자료(학생용)</title>
+    <title>기하 학습 자료(교사용)</title>
     <style>
         /* 기본 스타일 설정 */
         body {
@@ -71,8 +71,8 @@
             color: white;
             text-decoration: none;
             border-radius: 12px;
-            font-size: 1.15rem; 
-            font-weight: bold;  
+            font-size: 1.15rem; /* 글자 크기 키움 */
+            font-weight: bold;  /* 글자 굵게 처리하여 가시성 확보 */
             text-align: center;
             transition: all 0.2s ease;
             box-shadow: 0 3px 5px rgba(0,0,0,0.15);
@@ -82,20 +82,28 @@
             transform: scale(0.98);
         }
 
-        /* 지오지브라 링크 색상 (짙은 초록색으로 변경) */
+        /* 지오지브라 링크 색상 (짙은 녹색으로 변경) */
         .geo-link {
-            background-color: #1b5e20; /* 짙은 초록색 */
+            background-color: #1b5e20; 
         }
         .geo-link:hover {
-            background-color: #144d18; /* 마우스 올렸을 때 더 어두운 초록색 */
+            background-color: #2e7d32;
         }
 
-        /* 웹앱 링크 색상 (짙은 파란색) */
+        /* 웹앱 링크 색상 (짙은 파란색으로 변경) */
         .web-link {
-            background-color: #1e40af; 
+            background-color: #1e3a8a; 
         }
         .web-link:hover {
-            background-color: #1e3a8a; 
+            background-color: #1e40af; 
+        }
+
+        /* 구글 드라이브 링크 (차분한 슬레이트 그레이) */
+        .drive-link {
+            background-color: #475569; 
+        }
+        .drive-link:hover {
+            background-color: #334155;
         }
 
         /* 화살표 애니메이션 */
@@ -110,7 +118,7 @@
 </head>
 <body>
 
-    <h1>🧭 기하 학습 자료(학생용)</h1>
+    <h1>🧭 기하 학습 자료(교사용)</h1>
 
     <div class="container">
         
@@ -119,7 +127,7 @@
         </button>
         <div id="geogebra" class="link-list">
             <a href="https://www.geogebra.org/m/wbza38s2" target="_blank" class="link-item geo-link">📖 기하 개념 열기</a>
-            <a href="https://www.notion.so/359306bcfb2980df8953f508a47c2157?source=copy_link" target="_blank" class="link-item geo-link">📝 지오지브라 활동지</a>
+            <a href="https://www.notion.so/359306bcfb29804d96c9f26a48233b3b?source=copy_link" target="_blank" class="link-item geo-link">📝 지오지브라 활동지</a>
         </div>
 
         <button class="category-btn" onclick="toggleLinks('webapp', this)">
@@ -129,6 +137,7 @@
             <a href="https://career-e8vtdjaum4husfbmy4pcj8.streamlit.app/" target="_blank" class="link-item web-link">🔍 진로 탐색기</a>
             <a href="https://nakji001-netizen.github.io/major-explorer/" target="_blank" class="link-item web-link">🎓 진로 연계 학과 탐색기</a>
             <a href="https://geometrycareer-iznpecjptdmtlswsb9lhao.streamlit.app/" target="_blank" class="link-item web-link">📐 기하-전공 연결고리 탐색기</a>
+            <a href="https://drive.google.com/drive/folders/1CYlW07Ph86P18FTEuwKECjl55RhRX68B?usp=sharing" target="_blank" class="link-item drive-link">💻 웹앱 코드 (Google Drive)</a>
         </div>
 
     </div>
