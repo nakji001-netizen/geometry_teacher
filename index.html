@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>수업 바로가기 웹앱</title>
+    <style>
+        /* 기본 배경 및 폰트 설정 */
+        body { 
+            font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; 
+            padding: 20px; 
+            max-width: 500px; 
+            margin: 0 auto; 
+            background-color: #f4f7f6;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        /* 메인 버튼 스타일 (지오지브라) */
+        .menu-btn { 
+            background-color: #4b6cb7; 
+            color: white; 
+            padding: 15px 20px; 
+            width: 100%; 
+            text-align: left; 
+            border: none; 
+            font-size: 18px; 
+            font-weight: bold;
+            cursor: pointer; 
+            border-radius: 8px; 
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .menu-btn:hover { 
+            background-color: #3a5494; 
+        }
+        /* 하위 링크 컨테이너 (초기에는 숨김) */
+        .dropdown-content { 
+            display: none; 
+            background-color: #ffffff; 
+            border-radius: 8px; 
+            margin-top: 5px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        /* 하위 링크 스타일 */
+        .dropdown-content a { 
+            display: block; 
+            padding: 15px 20px; 
+            text-decoration: none; 
+            color: #4b6cb7; 
+            font-weight: 500;
+            border-bottom: 1px solid #eee; 
+        }
+        .dropdown-content a:last-child { 
+            border-bottom: none; 
+        }
+        .dropdown-content a:hover { 
+            background-color: #f0f4f8; 
+        }
+    </style>
+</head>
+<body>
+
+    <h2>🔗 수업 바로가기 모음</h2>
+
+    <!-- 지오지브라 버튼 -->
+    <button class="menu-btn" onclick="toggleMenu('geogebra-menu')">
+        <span>지오지브라</span>
+        <span>▼</span>
+    </button>
+    
+    <!-- 지오지브라 하위 메뉴 -->
+    <div id="geogebra-menu" class="dropdown-content">
+        <!-- target="_blank"는 새 창(탭)에서 열리도록 하는 속성입니다 -->
+        <a href="https://www.geogebra.org/m/wbza38s2" target="_blank">📐 기하 개념 열기</a>
+        <a href="https://www.notion.so/359306bcfb29804d96c9f26a48233b3b?source=copy_link" target="_blank">📝 지오지브라 활동지</a>
+    </div>
+
+    <script>
+        // 버튼 클릭 시 하위 메뉴를 보이거나 숨기는 자바스크립트 함수
+        function toggleMenu(id) {
+            var menu = document.getElementById(id);
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>
