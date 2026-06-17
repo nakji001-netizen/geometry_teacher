@@ -2,7 +2,8 @@ name: Keep Streamlit App Alive
 
 on:
   schedule:
-    - cron: '0 */9 * * *' # 9시간마다 실행
+    # ⭐️ 5시간마다 자동으로 실행 (UTC 기준 0시, 5시, 10시, 15시, 20시...)
+    - cron: '0 */5 * * *'
   workflow_dispatch:
 
 jobs:
@@ -14,7 +15,6 @@ jobs:
       with:
         persist-credentials: false
 
-    # ⭐️ [핵심 수정] 빈 커밋 대신 실제 파일에 텍스트(시간)를 기록합니다.
     - name: Update keep-alive log
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
